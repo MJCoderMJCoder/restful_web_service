@@ -15,7 +15,7 @@ public class GreetingController {
     private final AtomicLong COUNTER = new AtomicLong();
 
     @RequestMapping(value = "greeting", method = RequestMethod.GET)
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String username) {
+    public Greeting greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String username) {
         return new Greeting(COUNTER.incrementAndGet(),
                 String.format(TEMPLATE, username));
     }
