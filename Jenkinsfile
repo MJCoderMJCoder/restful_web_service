@@ -7,7 +7,6 @@ pipeline {
     stages {
         stage('构建') {
             steps {
-                sh "gradle -v"
                 sh "./gradle build"
             }
         }
