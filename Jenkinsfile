@@ -5,10 +5,15 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('build') {
+        stage('构建') {
             steps {
-                echo "build"
-                sh 'java --version'
+                sh "gradle -v"
+                sh "./gradle build"
+            }
+        }
+        stage('部署') {
+            steps {
+                echo "Deploying"
             }
         }
     }
