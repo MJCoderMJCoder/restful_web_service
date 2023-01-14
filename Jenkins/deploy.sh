@@ -7,6 +7,7 @@ sudo chmod +777 /var/run/docker.sock
 egrep "^docker" /etc/group >& /dev/null
 if [ $? -ne 0 ]
 then
+    echo "Add the docker user group."
     sudo groupadd docker
 fi
 #将当前用户加入到docker用户组.
