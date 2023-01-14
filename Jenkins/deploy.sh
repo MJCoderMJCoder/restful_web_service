@@ -4,7 +4,7 @@ mv ./build/libs/restful_web_service-0.0.1-SNAPSHOT.jar ./Jenkins/
 # gradle清理构建的信息
 ./gradlew clean
 chmod +777 /var/run/docker.sock
-if [[ "$(docker inspect restful_web_service 2> /dev/null | grep '"Name": "/restful_web_service"')" != "" ]]
+if [[ `docker inspect restful_web_service 2> /dev/null | grep '"Name": "/restful_web_service"'` != "" ]]
 then
   docker stop restful_web_service
   docker rm -f restful_web_service
