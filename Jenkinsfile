@@ -12,7 +12,7 @@ pipeline {
         }
         stage('部署') {
             steps {
-                sh "sudo /bin/sh ./Jenkins/deploy.sh"
+                sh "/bin/sh ./Jenkins/deploy.sh"
             }
         }
     }
