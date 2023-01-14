@@ -1,7 +1,8 @@
 #!/bin/bash
 #给docker.sock添加读写权限
 sudo chmod +777 /var/run/docker.sock
-echo "Current user：$USER"
+echo "Current user："
+getent passwd `who` | head -n 1 | cut -d : -f 1
 #创建docker用户组.
 egrep "^docker" /etc/group >& /dev/null
 if [ $? -ne 0 ]
