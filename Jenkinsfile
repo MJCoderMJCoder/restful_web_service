@@ -12,7 +12,7 @@ pipeline {
         }
         stage('部署') {
             steps {
-                sh "su root"
+                sh "chmod +777 ./Jenkins/deploy.sh"
                 sh "/bin/sh ./Jenkins/deploy.sh"
             }
         }
