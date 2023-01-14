@@ -1,8 +1,8 @@
 #!/bin/bash
-current_user=`getent passwd \`who\` | head -n 1 | cut -d : -f 1`
-echo "Current user：${current_user}"
 #给docker.sock添加读写权限
 sudo chmod +777 /var/run/docker.sock
+current_user=`getent passwd \`who\` | head -n 1 | cut -d : -f 1`
+echo "Current user：${current_user}"
 #创建docker用户组.
 current_group=`egrep "^docker" /etc/group`
 if [ ${#current_group} -gt 0 ]
