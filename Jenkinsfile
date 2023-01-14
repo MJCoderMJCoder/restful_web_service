@@ -7,12 +7,13 @@ pipeline {
     stages {
         stage('构建') {
             steps {
-                sh "sudo /bin/sh ./Jenkins/build.sh"
+                sh "/bin/sh ./Jenkins/build.sh"
             }
         }
         stage('部署') {
             steps {
-                sh "sudo /bin/sh ./Jenkins/deploy.sh"
+                sh "su root"
+                sh "/bin/sh ./Jenkins/deploy.sh"
             }
         }
     }
