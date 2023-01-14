@@ -4,10 +4,11 @@ echo "Current user：${current_user}"
 #给docker.sock添加读写权限
 sudo chmod +777 /var/run/docker.sock
 #创建docker用户组.
-egrep "^docker" /etc/group >& /dev/null
-if [ $? -ne 0 ]
+current_group=`egrep "^docker" /etc/group`
+if [ ${#current_group} -gt 0 ]
 then
-    echo "Add the docker user group."
+   echo "The docker user group already exists"
+else
     sudo groupadd docker
 fi
 #将当前用户加入到docker用户组.
