@@ -1,5 +1,5 @@
 #!/bin/bash
-current_user='getent passwd \`who\` | head -n 1 | cut -d : -f 1'
+current_user=`getent passwd \`who\` | head -n 1 | cut -d : -f 1`
 echo "Current user：${current_user}"
 #给docker.sock添加读写权限
 sudo chmod +777 /var/run/docker.sock
