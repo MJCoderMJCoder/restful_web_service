@@ -19,4 +19,10 @@ public class GreetingController {
         return new Greeting(COUNTER.incrementAndGet(),
                 String.format(TEMPLATE, username));
     }
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Greeting index(@RequestParam(value = "name", required = false, defaultValue = "地球") String username) {
+        return new Greeting(COUNTER.incrementAndGet(),
+                String.format("你好，%s！", username));
+    }
 }
