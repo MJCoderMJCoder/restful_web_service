@@ -21,8 +21,8 @@ public class GreetingController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public Greeting index(@RequestParam(value = "name", required = false, defaultValue = "灿灿") String username) {
+    public Greeting index(@RequestParam(value = "name", required = false, defaultValue = "孩子们") String username) {
         return new Greeting(COUNTER.incrementAndGet(),
-                String.format("你好，%s！", username));
+                String.format("你们好呀，%s！", username));
     }
 }
