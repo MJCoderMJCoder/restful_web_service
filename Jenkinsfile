@@ -16,4 +16,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+                sh "/bin/sh ./Jenkins/clean.sh"
+        }
+    }
 }
