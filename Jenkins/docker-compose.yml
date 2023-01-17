@@ -1,0 +1,35 @@
+# 本 yml 依从的 compose 版本。
+version: '3'
+services:
+  restful_web_service:
+    # 指定自定义容器名称
+    container_name: restful_web_service
+    # 设置为true使container内的root拥有真正的root权限；否则，container内的root只是外部的一个普通用户权限。不然数据卷可能挂载不了，启动不起
+    privileged: true
+    # 指定构建镜像的相关参数
+    build:
+      # 构建镜像的上下文路径 ./MySQL
+      context: ./Jenkins/
+      # 构建镜像的 Dockerfile 文件名
+      dockerfile: Dockerfile
+    # 将容器和主机绑定到暴露的端口 3306（宿主机:容器）
+    ports:
+      # 用于浏览器访问
+      - 80:80
+    restart: always
+    logging:
+      # 指定服务容器的日志记录驱动程序
+      driver: json-file
+      options:
+        # 单个文件大小为 1M
+        max-size: "1M"
+        # 最多10个文件
+        max-file: "10"
+# networks关键字指定自定义网络
+networks:
+  # 配置默认网络(及网络名称为：default的就是默认网络)
+  default:
+    # 使用已存在的网络
+    external:
+      # 已创建的网络名
+      name: dockercomposedemo_default
