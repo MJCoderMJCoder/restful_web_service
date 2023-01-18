@@ -6,6 +6,8 @@ if [ ${#container_name} -gt 0 ]
 then
   docker stop restful_web_service
   docker rm -f restful_web_service
+  # 清理无用的镜像
+  docker image prune -f
 fi
 cd ./Jenkins/
 docker-compose up -d
