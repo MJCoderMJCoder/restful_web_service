@@ -6,12 +6,16 @@ services:
     container_name: restful_web_service
     # 设置为true使container内的root拥有真正的root权限；否则，container内的root只是外部的一个普通用户权限。不然数据卷可能挂载不了，启动不起
     privileged: true
-    # 指定构建镜像的相关参数
+    # 基于一份Dockerfile，指定构建镜像的相关参数
     build:
       # 构建镜像的上下文路径 ./MySQL
       context: .
       # 构建镜像的 Dockerfile 文件名
       dockerfile: Dockerfile
+    # 镜像名称
+    # 1. image可以用来指定服务的镜像名称或镜像ID（基于指定的镜像：image: redis）。如果镜像在本地不存在, docker-compose将会尝试拉取这个镜像。
+    # 2. 如果同时指定了image和build两个标签,那么 docker-compose 会构建镜像并且把镜像命名为 image 后面的那个名字。
+    image: restful_web_service
     # 将容器和主机绑定到暴露的端口 3306（宿主机:容器）
     ports:
       # 用于浏览器访问
