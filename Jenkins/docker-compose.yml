@@ -9,7 +9,7 @@ services:
     # 指定构建镜像的相关参数
     build:
       # 构建镜像的上下文路径 ./MySQL
-      context: ./Jenkins/
+      context: .
       # 构建镜像的 Dockerfile 文件名
       dockerfile: Dockerfile
     # 将容器和主机绑定到暴露的端口 3306（宿主机:容器）
