@@ -8,7 +8,7 @@ then
   docker rm -f restful_web_service
 fi
 # 清理镜像
-image_id=`docker images "*restful_web_service*" -q 2> /dev/null`
+image_id=`docker images "jenkins_restful_web_service" -q 2> /dev/null`
 if [ ${#image_id} -gt 0 ]
 then
   docker rmi -f ${image_id}
